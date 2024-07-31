@@ -1,0 +1,41 @@
+create database if not exists techmac_db;
+use techmac_db;
+drop table techhyve_employees;
+create table techhyve_employees(empolyee_Id int primary key,firstname varchar(100),lastname varchar(100),gender varchar(10),age int);
+create table techcloud_employees(empolyee_Id int primary key,firstname varchar(100),lastname varchar(100),gender varchar(10),age int);
+create table techsoft_employees(empolyee_Id int primary key,firstname varchar(100),lastname varchar(100),gender varchar(10),age int);
+insert into techsoft_employees values('0001', 'Eli' , 'Evans' , 'Male','26');
+insert into techsoft_employees values('0002','Carlos','Simmons','Male','32');
+insert into techsoft_employees values('0004','Joey','Hughes','Male','41');
+insert into techsoft_employees values('0003','Kathie','Bryant','Female','25');
+insert into techsoft_employees values('0005','Alice','Matthews','Female','52');
+desc techsoft_employees;
+select * from techsoft_employees;
+insert into techcloud_employees values('0001', 'Teresa' , 'Bryant' ,'Female','39');
+insert into techcloud_employees values('0002','Alexis','Patterson','Male','48');
+insert into techcloud_employees values('0004','Rose','Bell','Female','42');
+insert into techcloud_employees values('0003','Gemma','Watkins','Female','44');
+insert into techcloud_employees values('0005','Kingston','Martinez','Male','29');
+select * from techcloud_employees;
+insert into techhyve_employees values('0001','Peter','Burtler','Female','44');
+insert into techhyve_employees values('0002','Harold','Simmons','Male','54');
+insert into techhyve_employees values('0004','Paul','Ward','Male','29');
+insert into techhyve_employees values('0003','Juilana','Sanders','Female','36');
+insert into techhyve_employees values('0005','Nicole','Bryant','Female','30');
+select * from techhyve_employees;
+
+
+create database bkp_techmac_db;
+create table bkp_techmac_db.techhyve_employees select * from techhyve_employees;
+select * from bkp_techmac_db.techhyve_employees;
+
+create table bkp_techmac_db.techsoft_employees select * from techsoft_employees;
+select * from bkp_techmac_db.techsoft_employees;
+
+create table bkp_techmac_db.techcloud_employees select * from techcloud_employees;
+select * from bkp_techmac_db.techcloud_employees;
+
+delete from techcloud_employees where empolyee_Id=0001;
+delete from techcloud_employees where empolyee_Id=0004;
+delete from techhyve_employees where empolyee_Id=0003;
+delete from techhyve_employees where empolyee_Id=0005;
